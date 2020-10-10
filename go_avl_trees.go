@@ -6,12 +6,13 @@ import (
     "fmt"
 )
  
+// Key ...
 type Key interface {
     Less(Key) bool
     Eq(Key) bool
 }
   
- 
+// Node ... 
 type Node struct {
     Data    Key
     Balance int
@@ -174,18 +175,20 @@ func main() {
     fmt.Println(string(avl))
  
     fmt.Println("\nInsert Tree:")
-    Insert(&tree, intKey(4))
+    Insert(&tree, intKey(1))
     Insert(&tree, intKey(2))
-    Insert(&tree, intKey(7))
+    Insert(&tree, intKey(3))
+    Insert(&tree, intKey(4))
+    Insert(&tree, intKey(5))
     Insert(&tree, intKey(6))
-    Insert(&tree, intKey(6))
-    Insert(&tree, intKey(9))
     avl,_ = json.MarshalIndent(tree, "", "   ")
     fmt.Println(string(avl))
-  
+
+	/*
     fmt.Println("\nRemove Tree:")
     Remove(&tree, intKey(4))
     Remove(&tree, intKey(6))
     avl,_ = json.MarshalIndent(tree, "", "   ")
-    fmt.Println(string(avl))
+	fmt.Println(string(avl))
+	*/
 }
